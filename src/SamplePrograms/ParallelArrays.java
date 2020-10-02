@@ -2,7 +2,7 @@ package SamplePrograms;
 
 import java.util.Scanner;
 
-public class ParallelArrays1 {
+public class ParallelArrays {
 
     public static void main(String[] args) {
         String student[] = new String[5];
