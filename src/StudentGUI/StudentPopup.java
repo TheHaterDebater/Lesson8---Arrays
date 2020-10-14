@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package StudentGUI;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author dami5080
  */
 public class StudentPopup extends javax.swing.JDialog {
-
+    Student temp;
     /**
      * Creates new form StudentPopup
      */
@@ -32,7 +33,7 @@ public class StudentPopup extends javax.swing.JDialog {
         txtname = new javax.swing.JTextField();
         btnok = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        lblmarks = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -47,7 +48,7 @@ public class StudentPopup extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        lblmarks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null}
             },
@@ -55,8 +56,8 @@ public class StudentPopup extends javax.swing.JDialog {
                 "Mark 1", "Mark 2", "Mark 3"
             }
         ));
-        jTable1.setRowSelectionAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        lblmarks.setRowSelectionAllowed(false);
+        jScrollPane1.setViewportView(lblmarks);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,9 +109,32 @@ public class StudentPopup extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnokActionPerformed
+        int marks[] = new int[3];
+        String name = txtname.getText();
+        try{
+            marks[0] = Integer.parseInt(lblmarks.getValueAt(0, 0).toString());
+            marks[1] = Integer.parseInt(lblmarks.getValueAt(0, 1).toString());
+            marks[2] = Integer.parseInt(lblmarks.getValueAt(0, 2).toString());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Fill out all fields\n (press <enter> on each mark");
+            return;
+        }
+        temp = new Student(name, marks);
+        
         this.dispose();
     }//GEN-LAST:event_btnokActionPerformed
 
+    public void setForm(Student s){
+        txtname.setText(s.getName());
+        for (int i = 0; i < 3; i++) {
+            lblmarks.setValueAt(s.getMark(i+1), 0, i);
+        }
+    }
+    
+    public Student getStudent(){
+        return temp;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -162,7 +186,7 @@ public class StudentPopup extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable lblmarks;
     private javax.swing.JTextField txtname;
     // End of variables declaration//GEN-END:variables
 }

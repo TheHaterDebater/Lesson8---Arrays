@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package StudentGUI;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +24,7 @@ public class StudentBrowser extends javax.swing.JFrame {
         size = 0;
         currentstudent -= 1;
         fillData();
+        showStudent();
     }
 
     private void fillData() {
@@ -69,7 +71,6 @@ public class StudentBrowser extends javax.swing.JFrame {
         txtmark2 = new javax.swing.JTextField();
         txtmark3 = new javax.swing.JTextField();
         lblaverage = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -77,6 +78,7 @@ public class StudentBrowser extends javax.swing.JFrame {
         lblcount = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblindex = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
 
         jLabel7.setText("jLabel7");
 
@@ -95,6 +97,11 @@ public class StudentBrowser extends javax.swing.JFrame {
         });
 
         jButton2.setText("Modify");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Test 1");
 
@@ -117,8 +124,6 @@ public class StudentBrowser extends javax.swing.JFrame {
 
         lblaverage.setEditable(false);
 
-        jToggleButton1.setText("<<");
-
         jButton3.setText("<");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +139,11 @@ public class StudentBrowser extends javax.swing.JFrame {
         });
 
         jButton5.setText(">>");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Count");
 
@@ -142,6 +152,13 @@ public class StudentBrowser extends javax.swing.JFrame {
         jLabel8.setText("Index");
 
         lblindex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jButton6.setText("<<");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,8 +186,8 @@ public class StudentBrowser extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(52, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -183,21 +200,22 @@ public class StudentBrowser extends javax.swing.JFrame {
                                 .addComponent(txtmark3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jToggleButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(lblcount, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblcount, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblindex, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -230,19 +248,19 @@ public class StudentBrowser extends javax.swing.JFrame {
                     .addComponent(lblaverage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(jButton6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblcount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblcount, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
                         .addComponent(lblindex, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -253,6 +271,17 @@ public class StudentBrowser extends javax.swing.JFrame {
         //True = modal is true = pop up takes control of the app
         sp.setLocationRelativeTo(this); //Pops up over the frame
         sp.setVisible(true); //Show the pop up
+        Student temp = sp.getStudent();
+            String em = temp.validateData();
+            
+            if (em==null){
+                s[size] = temp;
+                currentstudent = size;
+                size++;
+                showStudent();
+            }
+            else
+                JOptionPane.showMessageDialog(this, em);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtmark1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmark1ActionPerformed
@@ -272,6 +301,38 @@ public class StudentBrowser extends javax.swing.JFrame {
             showStudent();
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (currentstudent < size && currentstudent > -1) {
+            currentstudent = size -1;
+            showStudent();
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        if (currentstudent < size && currentstudent > -1) {
+            currentstudent = 0;
+            showStudent();
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        StudentPopup sp = new StudentPopup(this, true);
+        sp.setForm(s[currentstudent]);
+        //True = modal is true = pop up takes control of the app
+        sp.setLocationRelativeTo(this); //Pops up over the frame
+        sp.setVisible(true); //Show the pop up
+        Student temp = sp.getStudent();
+        System.out.println(temp);
+            String em = temp.validateData();
+            
+            if (em==null){
+                s[currentstudent] = temp;
+                showStudent();
+            }
+            else
+                JOptionPane.showMessageDialog(this, em);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,6 +375,7 @@ public class StudentBrowser extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -322,7 +384,6 @@ public class StudentBrowser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField lblaverage;
     private javax.swing.JLabel lblcount;
     private javax.swing.JLabel lblindex;

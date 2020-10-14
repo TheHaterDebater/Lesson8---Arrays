@@ -59,7 +59,7 @@ public class Student {
         if (marks[0] < 0 || marks[0] > 100 || marks[1] < 0 || marks[1] > 100 || marks[2] < 0 || marks[2] > 100) {
             errormessage += ("At least one mark is not within acceptable range.");
         }
-        if (errormessage == null) {
+        if (errormessage != null) {
             errormessage += ("\nPlease re-enter all data");
         }
         return errormessage;
